@@ -5,7 +5,7 @@
 class nsq::install {
   include ::wget
 
-  $package_name = "nsq-${::nsq::version}-compat.linux-amd64.go${::nsq::go_version}.tar.gz"
+  $package_name = "nsq-${::nsq::version}.linux-amd64.go${::nsq::go_version}.tar.gz"
 
   user { 'nsq':
     ensure => present,

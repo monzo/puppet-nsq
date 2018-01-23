@@ -6,7 +6,7 @@
 class nsq::params {
   $go_version = '1.8'
 
-  $version = '1.0.0'
+  $version = '1.0.0-compat'
 
   $conf_dir = '/etc/nsq'
 
