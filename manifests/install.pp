@@ -26,7 +26,6 @@ class nsq::install {
     command => "tar -C ${::nsq::bin_dir} --strip-components=1 -xzf ${package_name}",
     cwd     => '/tmp',
     path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-    creates => "${::nsq::bin_dir}/bin/nsqd",
     unless  => "test -f ${::nsq::bin_dir}/bin/nsqd && ${::nsq::bin_dir}/bin/nsqd --version | grep ${::nsq::version}",
   }
 
