@@ -18,7 +18,7 @@ class nsq::install {
     require => User['nsq'],
   }
 
-  wget::fetch { "https://s3.amazonaws.com/bitly-downloads/nsq/${package_name}":
+  wget::fetch { "${::nsq::package_location}/${package_name}":
     destination => '/tmp/',
     verbose     => false,
   }

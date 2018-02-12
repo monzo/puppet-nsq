@@ -8,6 +8,8 @@ class nsq::params {
 
   $version = '1.0.0-compat'
 
+  $package_location = 'https://s3.amazonaws.com/bitly-downloads/nsq'
+
   $conf_dir = '/etc/nsq'
 
   $log_dir = '/var/log/nsq'
