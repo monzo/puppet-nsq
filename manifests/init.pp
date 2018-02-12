@@ -13,6 +13,9 @@
 #   Specify Go version of package you want to install.
 #   Sometimes the same version could be compiled with different Go versions
 #
+# * `package_location`
+#   Base URL to obtain packages from, defaults to bitly S3 bucket
+#
 # * `conf_dir`
 #   Where configuration files will live
 #
@@ -27,12 +30,13 @@
 #   Where binaries will be installed to
 #
 class nsq (
-  String $version = $::nsq::params::version,
-  String $go_version = $::nsq::params::go_version,
-  String $conf_dir = $::nsq::params::conf_dir,
-  String $data_dir = $::nsq::params::data_dir,
-  String $log_dir = $::nsq::params::log_dir,
-  String $bin_dir = $::nsq::params::bin_dir,
+  String $version          = $::nsq::params::version,
+  String $go_version       = $::nsq::params::go_version,
+  String $package_location = $::nsq::params::package_location,
+  String $conf_dir         = $::nsq::params::conf_dir,
+  String $data_dir         = $::nsq::params::data_dir,
+  String $log_dir          = $::nsq::params::log_dir,
+  String $bin_dir          = $::nsq::params::bin_dir,
 ) inherits ::nsq::params {
 
   class { '::nsq::service': }
