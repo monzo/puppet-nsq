@@ -27,6 +27,7 @@ class nsq::install {
     cwd     => '/tmp',
     path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
     unless  => "test -f ${::nsq::bin_dir}/bin/nsqd && ${::nsq::bin_dir}/bin/nsqd --version | grep ${::nsq::version}",
+    notify  => [ Service['nsqd'], Service['nsqlookupd'], Service['nsqadmin'] ],
   }
 
 }
