@@ -88,9 +88,7 @@ statsd_mem_stats = true
 
 ## message processing time percentiles to keep track of (float)
 e2e_processing_latency_percentiles = [
-    1.0,
-    0.99,
-    0.95
+  <%= scope.lookupvar('nsq::nsqd::e2e_processing_latency_percentiles') %>
 ]
 
 ## calculate end to end latency quantiles for this duration of time (time.Duration)

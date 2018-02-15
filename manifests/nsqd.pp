@@ -38,19 +38,23 @@
 # * `nsqlookupd_addresses`
 #   Array of nsqlookupd addresses to connect to
 #
+# * `e2e_processing_latency_percentiles`
+#   e2e percentiles to calculate, used by nsqadmin interface
+#
 class nsq::nsqd(
-  Boolean $service_manage                 = $::nsq::params::service_manage,
-  Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
-  Boolean $verbose_logging                = false,
-  String $log_level                       = $::nsq::params::log_level,
-  String $tcp_address                     = '0.0.0.0:4150',
-  String $http_address                    = '0.0.0.0:4151',
-  String $data_dir                        = $::nsq::params::data_dir,
-  String $statsd_address                  = $::nsq::params::statsd_address,
-  String $statsd_prefix                   = $::nsq::params::statsd_prefix,
-  Array $nsqlookupd_addresses             = [ '127.0.0.1:4160' ],
-  String $msg_timeout                     = $::nsq::params::msg_timeout,
-  String $broadcast_address               = $::networking['hostname'],
+  Boolean $service_manage                     = $::nsq::params::service_manage,
+  Variant[Boolean, Undef] $service_ensure     = $::nsq::params::service_ensure,
+  Boolean $verbose_logging                    = false,
+  String  $log_level                          = $::nsq::params::log_level,
+  String  $tcp_address                        = '0.0.0.0:4150',
+  String  $http_address                       = '0.0.0.0:4151',
+  String  $data_dir                           = $::nsq::params::data_dir,
+  String  $statsd_address                     = $::nsq::params::statsd_address,
+  String  $statsd_prefix                      = $::nsq::params::statsd_prefix,
+  Array   $nsqlookupd_addresses               = [ '127.0.0.1:4160' ],
+  String  $msg_timeout                        = $::nsq::params::msg_timeout,
+  String  $broadcast_address                  = $::networking['hostname'],
+  String  $e2e_processing_latency_percentiles = "1.0, 0.99, 0.95",
 ){
   include nsq::nsqd::config
 
