@@ -12,6 +12,9 @@
 # * `service_ensure`
 #   Ensure nsqd service is running
 #
+# * `service_reload`
+#   Automatically restart the service when config changes
+#
 # * `verbose_logging`
 #   Toggle verbose logging
 #
@@ -30,6 +33,7 @@
 class nsq::nsqlookupd(
   Boolean $service_manage                 = $::nsq::params::service_manage,
   Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  Boolean $service_reload                 = $::nsq::params::service_reload,
   Boolean $verbose_logging                = false,
   String $log_level                       = $::nsq::params::log_level,
   String $tcp_address                     = '0.0.0.0:4160',
@@ -56,4 +60,3 @@ class nsq::nsqlookupd(
     }
   }
 }
-

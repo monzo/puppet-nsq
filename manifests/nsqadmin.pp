@@ -12,6 +12,9 @@
 # * `service_ensure`
 #   Ensure nsqadmin service is running
 #
+# * `service_reload`
+#   Automatically restart the service when config changes
+#
 # * `http_address`
 #   The IP and port nsqadmin will bind to.  e.g. 0.0.0.0:4171
 #
@@ -27,6 +30,7 @@
 class nsq::nsqadmin(
   Boolean $service_manage                 = $::nsq::params::service_manage,
   Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  Boolean $service_reload                 = $::nsq::params::service_reload,
   String $http_address                    = '0.0.0.0:4171',
   Array $nsqlookupd_addresses             = [ '127.0.0.1:4161' ],
   String $statsd_prefix                   = $::nsq::params::statsd_prefix,
