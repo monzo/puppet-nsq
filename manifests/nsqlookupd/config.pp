@@ -5,7 +5,7 @@
 #
 class nsq::nsqlookupd::config {
 
-  $notify_service = $nsq::nsqlookupd::service_manage and $nsq::nsqlookupd::service_reload ? {
+  $notify_service = ($nsq::nsqlookupd::service_manage and $nsq::nsqlookupd::service_reload) ? {
     true    => Service['nsqlookupd'],
     false   => undef,
     default => undef,
