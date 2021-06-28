@@ -59,6 +59,7 @@ class nsq::nsqd(
   String  $msg_timeout                        = $::nsq::params::msg_timeout,
   String  $broadcast_address                  = $::networking['hostname'],
   String  $e2e_processing_latency_percentiles = "1.0, 0.99, 0.95",
+  Integer $limit_nofile                       = 65536,
 ){
   include nsq::nsqd::config
 
