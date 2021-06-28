@@ -31,4 +31,6 @@ class nsq::params {
   $msg_timeout = '60s'
 
   $log_level = 'info'
+
+  $limit_nofile = 65536
 }
